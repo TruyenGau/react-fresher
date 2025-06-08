@@ -15,7 +15,7 @@ interface IBackendRes<T> {
             pages: number;
             total: number;
         },
-        results: T[]
+        result: T[]
     }
 
     interface ILogin {
@@ -47,5 +47,17 @@ interface IBackendRes<T> {
         user: IUser;
     }
 
+    interface IUserTable {
+        _id: string;
+        email: string;
+        phone: string;
+        fullName : string;
+        role: string;
+        avatar: string;
+        isActive: boolean;
+        createdAt: Date;
+        updated: Date;
+ 
+    }
    }
  

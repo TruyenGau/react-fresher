@@ -18,5 +18,21 @@ export const registerApi = (fullName: string, email: string, password: string, p
 
 export const fetchAccountApi = () =>{
     const urlBackend = "/api/v1/auth/account";
-    return axios.get<IBackendRes<IFetchAccount>>(urlBackend);
+    return axios.get<IBackendRes<IFetchAccount>>(urlBackend,
+        {
+            headers: {
+                delay: 1000
+            }
+        }
+    );
+}
+
+export const logoutApi = () =>{
+    const urlBackend = "/api/v1/auth/logout";
+    return axios.post<IBackendRes<IRegister>>(urlBackend)
+}
+
+export const getUsersApi = (query: string) =>{
+    const urlBackend = `/api/v1/user?${query}`;
+    return axios.get<IBackendRes<IModelPaginate<IUserTable>>>(urlBackend)
 }
